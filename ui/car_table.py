@@ -39,3 +39,13 @@ class CarTable(ttk.Frame):
         self.tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
+    def _configure_columns(self):
+        column_widths = {
+            "id": 50, "brand": 100, "model": 100,
+            "year": 70, "price": 100, "color": 100,
+            "mileage": 100}
+        
+        for col in self.COLUMNS:
+            self.tree.heading(col, text=self.COLUMNS_NAME[col])
+            self.tree.column(col, width=column_widths[col], anchor=tk.CENTER)
+
