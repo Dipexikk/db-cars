@@ -1,0 +1,29 @@
+[
+    {
+        "id": 0,
+        "brand": "Škoda",
+        "model": "Octavia",
+        "year": 2020,
+        "price": 25000,
+        "color": "Modrá",
+        "mileage": 150000
+    },
+    {
+        "id": 1,
+        "brand": "Volkswagen ",
+        "model": "Polo",
+        "year": 2001,
+        "price": 12000,
+        "color": "Zelená metalíza",
+        "mileage": 101200
+    },
+    {
+        "id": 2,
+        "brand": "dg",
+        "model": "dfg",
+        "year": 1000,
+        "price": 10000,
+        "color": "opúo",
+        "mileage": 100000
+    }
+]

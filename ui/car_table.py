@@ -8,11 +8,11 @@ class CarTable(ttk.Frame):
         "brand": "Značka",
         "model": "Model",
         "year": "Rok",
-        "price": "Cena",
+        "price": "Cena (Kč)",
         "color": "Barva",
-        "mileage": "Najeto (km)",
+        "mileage": "Najeto (km)"
     }
-     
+
     def __init__(self, parent):
         super().__init__(parent)
         self._create_widgets()
@@ -26,26 +26,44 @@ class CarTable(ttk.Frame):
             self,
             columns=self.COLUMNS,
             show="headings",
-            selectmode="browse",
-        )
-
-        self.scrollbar = ttk.Scrollbar(
-            self,
-            orient=tk.VERTICAL,
-            show="headings",
             selectmode="browse"
         )
-                
+
+        scrollbar = ttk.Scrollbar(
+            self,
+            orient=tk.VERTICAL,
+            command=self.tree.yview
+        )
+
+        self.tree.configure(yscrollcommand=scrollbar.set)
+
         self.tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self._configure_columns()
 
     def _configure_columns(self):
-        column_widths = {
+        widths = {
             "id": 50, "brand": 100, "model": 100,
-            "year": 70, "price": 100, "color": 100,
-            "mileage": 100}
-        
+            "year": 70, "price": 120,
+            "color": 100, "mileage": 120
+        }
+
         for col in self.COLUMNS:
             self.tree.heading(col, text=self.COLUMNS_NAME[col])
-            self.tree.column(col, width=column_widths[col], anchor=tk.CENTER)
+            self.tree.column(col, width=widths[col], anchor=tk.CENTER)
 
+    def refresh(self, cars):
+        for item in self.tree.get_children():
+            self.tree.delete(item)
+
+        for car in cars:
+            self.tree.insert("", tk.END, values=(
+                car["id"],
+                car["brand"],
+                car["model"],
+                car["year"],
+                car["price"],
+                car["color"],
+                car["mileage"]
+            ))
