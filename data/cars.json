@@ -19,11 +19,11 @@
     },
     {
         "id": 2,
-        "brand": "dg",
-        "model": "dfg",
-        "year": 1000,
-        "price": 10000,
-        "color": "opúo",
-        "mileage": 100000
+        "brand": "BMW",
+        "model": "220d",
+        "year": 2015,
+        "price": 180000,
+        "color": "Šedá metalíza",
+        "mileage": 230000
     }
 ]
