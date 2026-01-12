@@ -25,5 +25,14 @@
         "price": 180000,
         "color": "Šedá metalíza",
         "mileage": 230000
+    },
+    {
+        "id": 3,
+        "brand": "Škoda",
+        "model": "Octavia",
+        "year": 2011,
+        "price": 190000,
+        "color": "Bílá",
+        "mileage": 145000
     }
 ]
